@@ -21,7 +21,6 @@ from ..behaviors import ProgressBar, EditableTextWithoutAutoSelectDetection, Dia
 import textInfos.offsets
 from logHandler import log
 from locationHelper import RectLTWH
-from locationHelper import RectLTRB
 
 JABRolesToNVDARoles: Dict[str, controlTypes.Role] = {
 	"alert": controlTypes.Role.DIALOG,
@@ -133,7 +132,7 @@ class JABTextInfo(textInfos.offsets.OffsetsTextInfo):
 		offset = max(min(info.indexAtPoint, info.charCount - 1), 0)
 		return offset
 
-	def _getBoundingRectFromOffset(self, offset: int) -> RectLTRB:
+	def _getBoundingRectFromOffset(self, offset: int) -> RectLTWH:
 		rect = self.obj.jabContext.getAccessibleTextRect(offset)
 		try:
 			return RectLTWH(rect.x, rect.y, rect.width, rect.height).toLTRB()
