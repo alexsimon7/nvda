@@ -565,7 +565,7 @@ class JAB(Window):
 			return None
 		return index
 
-	def _getJABRelationTargets(self, key: str) -> list['JABHandler.JABContext']:
+	def _getJABRelationTargets(self, key: str) -> list["JABHandler.JABContext"]:
 		rs = self.jabContext.getAccessibleRelationSet()
 		targets = []
 		for relation in rs.relations[: rs.relationCount]:
